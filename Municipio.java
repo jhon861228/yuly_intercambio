@@ -35,7 +35,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedNativeQuery(name="municipio.concat",query="select concat(m.MunicipioCodigo, d.DepartamentoCodigo) as MunicipioCodigo,"
             + "MunicipioNombre as MunicipioNombre"
             + " from municipio m inner join departamento d on m.DepartamentoCodigo = d.DepartamentoCodigo", 
+            resultSetMapping="municipios"),
+    @NamedNativeQuery(name="municipiodepartamento.concat",query="select concat(m.MunicipioCodigo, d.DepartamentoCodigo) as MunicipioCodigo,"
+            + "MunicipioNombre as MunicipioNombre, d.DepartamentoNombre as DepartamentoNombre"
+            + " from municipio m inner join departamento d on m.DepartamentoCodigo = d.DepartamentoCodigo", 
             resultSetMapping="municipios")
+        
 })
 public class Municipio implements Serializable {
 
@@ -48,17 +53,32 @@ public class Municipio implements Serializable {
     @Column(name = "MunicipioNombre")
     private String municipioNombre;
     
+    @Basic(optional = false)
+    @Column(name = "DepartamentoNombre")
+    private String departamentoNombre;
+    
 
     public Municipio() {
     }
+
+    public String getDepartamentoNombre() {
+        return departamentoNombre;
+    }
+
+    public void setDepartamentoNombre(String departamentoNombre) {
+        this.departamentoNombre = departamentoNombre;
+    }
+    
+    
 
     public Municipio(String municipioCodigo) {
         this.municipioCodigo = municipioCodigo;
     }
 
-    public Municipio(String municipioCodigo, String municipioNombre) {
+    public Municipio(String municipioCodigo, String municipioNombre, String departamentoNombre) {
         this.municipioCodigo = municipioCodigo;
         this.municipioNombre = municipioNombre;
+        this.departamentoNombre = departamentoNombre;
 
     }
 
