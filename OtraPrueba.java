@@ -12,42 +12,90 @@ package pruebasvarias;
 public class OtraPrueba {
 
     public static void main(String[] args) {
-        // Texto
-        String sTexto = "<id>2</id><nombre>Juanito&</nombre><otro>texto</otro>";
-        
+
+        String sTexto = ""
+                + "<documento>"
+                + "<id>1</id>"
+                + "<nombre>retención en la fuente &</nombre>"
+                + "<tipo>contabilidad</tipo>"
+                + "</documento>"
+                
+                + "<documento>"
+                + "<id>2</id>"
+                + "<nombre>requerimiento <</nombre>"
+                + "<tipo>sistemas</tipo>"
+                + "</documento>"
+                
+                + "<documento>"
+                + "<id>3</id>"
+                + "<nombre>contrato /</nombre>"
+                + "<tipo>recursos humano</tipo>"
+                + "</documento>"
+                + "";
         System.out.println(convierteQuitardoCaracteres(sTexto, "nombre"));
+
+        /*
+        Esto imprime
         
-        System.out.println(convierteCData(sTexto, "nombre"));
+        <documento><id>1</id><nombre>retención en la fuente y</nombre><tipo>contabilidad</tipo></documento>
+        <documento><id>2</id><nombre>requerimiento </nombre><tipo>sistemas</tipo></documento>
+        <documento><id>3</id><nombre>contrato </nombre><tipo>recursos humano</tipo></documento>
         
+              
+        
+        
+        */
+
     }
 
     public static String convierteQuitardoCaracteres(String cadena, String tag) {
-        
-        
-        int inicio = cadena.indexOf("<"+tag+">")+tag.length()+2;
+
+        int index = cadena.indexOf("<"+tag+">");
         int fin = cadena.indexOf("</"+tag+">");
-        String texto = cadena.substring(inicio, fin);
+               
         
-        //reemplaza todos los caractéres que necesite
-        texto = texto.replaceAll("&", "y");
+        // Busca cada coincidencia del tag con indexOf para el incio y fin del tag
+        // Obtiene el texto de ello y luego rremplaza caracteres
+        // Despues concatena el texto corregido a la cadena originar con substring
+        // Despues busca la siguiente coinidencia apartir del tag encontrado, 
+        // para que no se quede siempre en el primero
         
-        String nuevaCadena = cadena.substring(0, inicio)+texto+cadena.substring(fin,cadena.length());
+        // pero esto es mucho trabajo... El tipo que le envia eso debería hacerlo, pero bueno
         
-        return nuevaCadena;
+        while (index >= 0) {
+              
+            String texto = cadena.substring(index + tag.length() + 2, fin);
+
+            //reemplaza todos los caractéres que necesite
+            texto = texto.replaceAll("&", "y");
+            texto = texto.replaceAll("<", "");
+            texto = texto.replaceAll("/", "");
+
+            cadena = cadena.substring(0, index + tag.length() + 2) + texto + cadena.substring(fin, cadena.length());
+
+            index = cadena.indexOf("<"+tag+">", index + 1);
+            fin = cadena.indexOf("</"+tag+">", fin + 1);
+
+        }
+        return cadena;
     }
+
+    /*
+        Este método ya paila toca el de arriba
+    */
     
-    public static String convierteCData(String cadena, String tag) {
-        
-        
-        int inicio = cadena.indexOf("<"+tag+">")+tag.length()+2;
-        int fin = cadena.indexOf("</"+tag+">");
-        String texto = cadena.substring(inicio, fin);
-        
-        //hago un CData al contenido del tag
-        texto = "<![CDATA["+texto+"]]>";
-        
-        String nuevaCadena = cadena.substring(0, inicio)+texto+cadena.substring(fin,cadena.length());
-        
-        return nuevaCadena;
-    }
+//    public static String convierteCData(String cadena, String tag) {
+//
+//        int inicio = cadena.indexOf("<" + tag + ">") + tag.length() + 2;
+//        int fin = cadena.indexOf("</" + tag + ">");
+//        String texto = cadena.substring(inicio, fin);
+//
+//        //hago un CData al contenido del tag
+//        texto = "<![CDATA[" + texto + "]]>";
+//
+//        String nuevaCadena = cadena.substring(0, inicio) + texto + cadena.substring(fin, cadena.length());
+//
+//        return nuevaCadena;
+//    }
+
 }
