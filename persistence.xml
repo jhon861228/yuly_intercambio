@@ -1,0 +1,8 @@
+<persistence-unit name="model">
+  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+  <jta-data-source>jdbc/NO-LEO-BIEN</jta-data-source>
+  <shared-cache-mode>NONE</shared-cache-mode>
+  <properties>
+  	<property name="eclipselink.query-results-cache" value="false"/>
+  </properties>
+</persistence-unit>
