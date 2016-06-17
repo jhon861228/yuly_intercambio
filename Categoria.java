@@ -44,7 +44,7 @@ import javax.xml.bind.annotation.XmlRootElement;
                     @StoredProcedureParameter(name = "b",mode = ParameterMode.OUT,type = Integer.class)
                 }
         )
-)gi
+)
 public class Categoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
