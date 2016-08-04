@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/estilos.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <div class="wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div id="caja-acceso">
+                            <div id="encabezado">
+                                <div>
+                                    <a class="enlace-inicio" href="https://famisanar.com.co">Inicio</a>
+                                </div>
+                                <img alt="EPS FAMISANAR LTDA." width="100%" align="top" src="https://enlinea.famisanar.com.co/Portal/imgs/banner_eps_usu.jpg"/>
+                            </div>
+                            <div id="cuerpo">
+                                <img src="https://enlinea.famisanar.com.co/Portal/imgs/tab_eps_2.jpg" width="144" style="float: right"/>
+                                <div class="caja-gris datos-ingreso">
+                                    <h:form>
+                                        <h:outputLabel value="Documento"/>
+                                        <div>
+                                            <h:selectOneMenu styleClass="form-control tipo-doc input-inline">
+                                                <f:selectItem itemLabel="NIT" itemValue="N"/>
+                                                <f:selectItem itemLabel="Cédula" itemValue="CC"/>
+                                            </h:selectOneMenu>
+                                            <h:inputText styleClass="form-control doc input-inline"/>
+                                            <h:commandButton styleClass="boton-acceso btn btn-primary input-inline" value="Consultar"/>
+                                        </div>
+                                        
+                                    </h:form>
+
+                                </div>
+                            </div>
+                            <div id="pie">
+                                <a class="enlace-footer" onclick="abrirpopup('/Portal/pages/home/contactenos.jspx', 800, 300);" href="javascript:;">
+                                    <img height="54" style="margin-top:40px;" width="250" src="https://enlinea.famisanar.com.co/Portal/imgs/contacto_icon.png" border="0"/>
+                                </a>
+                                <a class="enlace-footer" alt="Abrir en una ventana nueva www.certicamara.com" target="_blank" href="http://www.certicamara.com">
+                                    <img alt="Abrir en una ventana nueva www.certicamara.com" width="100" src="https://enlinea.famisanar.com.co/Portal/imgs/certicamara.gif" border="0"/>
+                                </a>
+                                <div class="enlace-footer">
+                                    <p style="color:#007CC4;font-size: 14px;text-align: center;">Navegadores Soportados</p>
+                                    <div class="navegador">
+                                        <a style="border:none;" target="_blank" href="http://www.mozilla.org/es-ES/firefox/new/"><img title="Firefox" style="width:35px;border:none;" alt="Firefox" src="https://enlinea.famisanar.com.co/Portal/imgs/firefox_logo.gif"/></a>
+                                        15+
+                                    </div>
+                                    <div class="navegador">
+                                        <a style="border:none;" target="_blank" href="https://www.google.com/intl/es/chrome/browser/?hl=es"><img title="Chrome" style="width:35px;border:none;" alt="Chrome" src="https://enlinea.famisanar.com.co/Portal/imgs/chrome_logo.png"/></a>
+                                        10+
+                                    </div>
+                                    <div class="navegador">
+                                        <a style="border:none;" target="_blank" href="http://windows.microsoft.com/es-es/internet-explorer/download-ie"><img title="Internet Explorer" style="width:35px;border:none;" alt="Internet" src="https://enlinea.famisanar.com.co/Portal/imgs/IE64.png"/></a>
+                                        9-10
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
