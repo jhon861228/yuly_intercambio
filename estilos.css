@@ -1,0 +1,53 @@
+
+#caja-acceso{
+    box-shadow: 0 0 5px 5px #ccc;
+}
+#encabezado{
+    border-bottom: 2px solid #1CB8C5;
+}
+#cuerpo{
+    clear: both;
+}
+.enlace-inicio{
+    float: right;
+    margin-right: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.caja-gris{
+    background: #f6f6f6;
+}
+.datos-ingreso{
+    clear: both;
+    border-radius: 10px;
+    margin: 30px auto;
+    width: 600px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.input-inline{
+    display: inline-block;
+}
+.tipo-doc{
+    width: 100px;
+}
+.doc{
+    width: 350px;
+}
+.boton-acceso{
+    width: 100px;
+    margin-left: 10px;
+}
+.enlace-footer{
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    width: 300px;
+}
+.navegador{
+    display: inline-block;
+    width: 20%;
+}
+.navegador a{
+    display: block;
+}
